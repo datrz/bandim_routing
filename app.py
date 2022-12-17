@@ -14,28 +14,6 @@ import datetime
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
-
-st.header("HERE Tour Planning Demo")
-
-grant_type = 'client_credentials'
-oauth_consumer_key = os.getenv('HERE_ACCESS_KEY_ID')
-access_key_secret = os.getenv('HERE_ACCESS_KEY_SECRET')
-oauth_nonce = str(int(time.time()*1000))
-oauth_timestamp = str(int(time.time()))
-oauth_signature_method = 'HMAC-SHA256'
-oauth_version = '1.0'
-url = 'https://account.api.here.com/oauth2/token'
-
-st.sidebar.header("Setup")
-
-# HMAC-SHA256 hashing algorithm to generate the OAuth signature
-def create_signature(secret_key, signature_base_string):
-    encoded_string = signature_base_string.encode()
-    encoded_key = secret_key.encode()
-    temp = hmac.new(encoded_key, encoded_string, hashlib.sha256).hexdigest()
-    byte_array = b64encode(binascii.unhexlify(temp))
-    return byte_array.decode()
 
 # concatenate the six oauth parameters, plus the request parameters from above, sorted alphabetically by the key and separated by "&"
 def create_parameter_string(grant_type, oauth_consumer_key,oauth_nonce,oauth_signature_method,oauth_timestamp,oauth_version):
