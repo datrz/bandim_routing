@@ -152,11 +152,6 @@ if valid_file:
     centroid_lat = df_plan['job_lat'].mean()
     centroid_lng = df_plan['job_lng'].mean()
 
-    import openrouteservice as ors
-    client = ors.Client(key=os.getenv('ORS_CLIENT_KEY'))
-
-    tpa_response = requests.post("https://tourplanning.hereapi.com/v2/problems", data=trp_request_json, headers=headers)
-
     if show_json:
         st.subheader("Response")
         st.json(tpa_response.text)
