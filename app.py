@@ -156,6 +156,5 @@ if valid_file:
 
     if show_json:
         st.subheader("Response")
-        st.json(tpa_response.text)
 
     st.subheader("Solution")
