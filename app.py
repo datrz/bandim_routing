@@ -16,6 +16,8 @@ import os
 
 #---------------------Fleet config ---------------------#
 
+logo = st.sidebar.image('logo.jpg')
+
 d = st.sidebar.date_input("Plan", datetime.date.today())
 st.write('Tour planning for:', str(d)+"T"+"07:00"+":00.000Z")
 
