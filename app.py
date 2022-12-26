@@ -148,14 +148,6 @@ if valid_file:
         st.subheader("Request")
         st.json(trp_request_json)
 
-
-    # TRP Requesting
-    authorization_token = "Bearer " + bearer_token
-    headers = {
-                'Content-Type' : 'application/json',
-                "Authorization": authorization_token
-              }
-
     # visualization
     centroid_lat = df_plan['job_lat'].mean()
     centroid_lng = df_plan['job_lng'].mean()
